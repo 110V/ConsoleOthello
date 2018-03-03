@@ -20,7 +20,8 @@ bool board::mark(int x, int y, markType type)
 {
 	std::vector<Point> turningMarks = logicCheacker::getTurningMarks(markers, x, y, type);
 	if (CheckInBoard(x, y) &&
-		!turningMarks.empty())
+		!turningMarks.empty()&&
+		markers[x][y] == empty)
 	{
 		for (Point p : turningMarks)
 		{
@@ -37,7 +38,8 @@ bool board::mark(markType type)
 {
 	std::vector<Point> turningMarks = logicCheacker::getTurningMarks(markers, curserX, curserY, type);
 	if (CheckInBoard(curserX, curserY) &&
-		!turningMarks.empty())
+		!turningMarks.empty() &&
+		markers[curserX][curserY] == empty)
 	{
 		for (Point p : turningMarks)
 		{
